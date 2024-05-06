@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Gizmos Galore</title>
+    <style>
+        /* CSS styles for the page layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .banner {
+            background-color: #000;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .navigation-bar {
+            background-color: #808080;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .navigation-bar a {
+            color: #000;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        .navigation-bar a:hover {
+            text-decoration: underline;
+        }
+        
+        .body-content {
+            padding: 20px;
+            text-align: center;
+            min-height: calc(100vh - 250px); /* Adjust the value as needed */
+        }
+        
+        .product-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .product {
+            width: 300px;
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+            background-color: #1c1c1c;
+        }
+        
+        .product img {
+            width: 200px;
+            height: 260px;
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            background-color: #808080;
+            padding: 10px;
+            text-align: center;
+            font-size: 12px;
+            color: #000;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        .product-gallery-link {
+            margin-right: 10px;
+        }
+		 .ipad img {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+		.ipad {
+            width: 300px;
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+            background-color: #1c1c1c;
+			height: 366px;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h1>Welcome to Gizmos Galore</h1>
+        <img src="data:image/jpeg;base64,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" alt="Gizmos Galore Logo">
+        <p>Discover a world of amazing Hotweheels</p>
+    </div>
+    
+    <div class="navigation-bar">
+        <a href="Gallery.html" class="button"> Available Hotwheels</a>
+        <a href="Ordering.html">Store</a>
+    </div>
+    
+    <div class="body-content">
+        <h2>Featured Gizmos</h2>
+        
+        <div class="product-container">
+            <div class="product">
+                 <img src="https://static.wikia.nocookie.net/hotwheels/images/2/2a/Red_Edition_2024_Nissan_Skyline_RS_%28KDR30%29_Black_Malaysia_HTF76.jpg/revision/latest/scale-to-width-down/1000?cb=20240228215622">
+                 <h3>Nissan Skyline RS (KDR30)</h3>
+                  <p>WRed Edition Target Exclusive</p>
+                  <p>Price: ₱990</p>
+            </div>
+            
+            <div class="product">
+                <img src="https://static.wikia.nocookie.net/hotwheels/images/9/96/Mainline_2024_Road_Bandit_MF_Dark_Blue_Malaysia_HTB43.jpg/revision/latest/scale-to-width-down/1000?cb=20231224171551">
+                        <h3>Road Bandit V3</h3>
+                    <p>HW Fast Transit.</p>
+                     <p>Price: ₱149</p>
+
+            </div>
+            
+            <div class="ipad">
+                <img src="https://static.wikia.nocookie.net/hotwheels/images/3/35/HTB49.jpg/revision/latest?cb=20230925051719">
+                      <h3>Custom ottoo</h3>
+                          <p>HW Dream Garage</p>
+                       <p>Price: ₱179</p>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        &copy; 2023 Gizmos Galore. All rights reserved.   | 
+        <a href="/products" class="Gallery.html">Product Gallery</a>| 
+        <a href="/order">Order Now</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Page</title>
+  <style>
+    /* CSS styles for the page */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      margin-top: 30px;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    .product {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .product img {
+      width: 80px;
+      height: 80px;
+      margin-right: 10px;
+    }
+
+    .product-name {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .product-desc {
+      color: #666;
+      margin-top: 5px;
+    }
+
+    .product-price {
+      color: #333;
+      margin-top: 5px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+	        .navigation-bar {
+            background-color: #808080;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .navigation-bar a {
+            color: #000;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        .navigation-bar a:hover {
+            text-decoration: underline;
+        }
+  </style>
+  <script>
+      function submitOrder() {
+  var selectedProducts = document.querySelectorAll('input[type="checkbox"]:checked');
+  console.log(selectedProducts);
+  var totalAmount = 0;
+  var orderSummary = "Order Summary:\n";
+
+  if (selectedProducts.length === 0) {
+    alert("Please select at least one product.");
+    return false;
+  }
+
+  selectedProducts.forEach(function(checkbox) {
+    var productDiv = checkbox.parentElement;
+    console.log(productDiv);
+    var productName = productDiv.querySelector('.product-name').textContent;
+    console.log(productName);
+    var productPrice = parseFloat(productDiv.querySelector('.product-price').textContent.replace(/[^0-9.]/g, ''));
+    console.log(productPrice);
+    totalAmount += productPrice;
+    orderSummary += productName + " - ₱" + productPrice.toFixed(2) + "\n";
+  });
+
+  orderSummary += "Total Amount: ₱" + totalAmount.toFixed(2);
+
+  alert(orderSummary);
+  return true;
+
+}
+
+    }
+  </script>
+</head>
+<body>
+  <h1>Order Page</h1>
+     <div class="navigation-bar">
+        <a href="HomePage.html" class="button"> Home</a>
+        <a href="Gallery.html">Gallery</a>
+    </div>
+
+    <form onsubmit="return submitOrder()">
+    <h2>Products</h2>
+    <div class="product">
+      <input type="checkbox" name="products[]" value="Nissan Skyline RS (KDR30)">
+    <img src="https://static.wikia.nocookie.net/hotwheels/images/2/2a/Red_Edition_2024_Nissan_Skyline_RS_%28KDR30%29_Black_Malaysia_HTF76.jpg/revision/latest/scale-to-width-down/1000?cb=20240228215622">
+    <h3>Nissan Skyline RS (KDR30)</h3>
+    <p>WRed Edition Target Exclusive</p>
+    <p>Price: ₱990</p>
+  </div>
+
+  <div class="product">
+      <input type="checkbox" name="products[]" value="Road Bandit V3">
+    <img src="https://static.wikia.nocookie.net/hotwheels/images/9/96/Mainline_2024_Road_Bandit_MF_Dark_Blue_Malaysia_HTB43.jpg/revision/latest/scale-to-width-down/1000?cb=20231224171551">
+    <h3>Road Bandit V3</h3>
+    <p>HW Fast Transit.</p>
+    <p>Price: ₱149</p>
+  </div>
+
+  <div class="product">
+      <input type="checkbox" name="products[]" value="Custom otto">
+    <img src="https://static.wikia.nocookie.net/hotwheels/images/3/35/HTB49.jpg/revision/latest?cb=20230925051719">
+    <h3>Custom otto</h3>
+    <p>HW Dream Garage</p>
+    <p>Price: ₱179</p>
+  </div>
+
+  <div class="product">
+      <input type="checkbox" name="products[]" value="15 Dodge Charger SRT">
+    <img src="https://static.wikia.nocookie.net/hotwheels/images/5/54/HTB56.jpg/revision/latest?cb=20230917121352">
+    <h3>'15 Dodge Charger SRT</h3>
+    <p>HW First Response</p>
+    <p>Price: ₱149</p>
+  </div>
+
+  <div class="product">
+      <input type="checkbox" name="products[]" value="Volvo XC40 Recharge">
+    <img src="https://static.wikia.nocookie.net/hotwheels/images/0/08/HTB79.jpg/revision/latest?cb=20230925050537">
+    <h3>Volvo XC40 Recharge</h3>
+    <p>HW Green Speed</p>
+    <p>Price: ₱139</p>
+  </div>
+
+  <div class="product">
+      <input type="checkbox" name="products[]" value="Tesla Model Y">
+    <img src="https://static.wikia.nocookie.net/hotwheels/images/e/ea/HTB80.jpg/revision/latest?cb=20230917122447">
+    <h3>Tesla Model Y</h3>
+    <p>HW Green Speed</p>
+    <p>Price: ₱199</p>
+  </div>
+
+  <div class="product">
+      <input type="checkbox" name="products[]" value="'70 Plymouth Barracuda">
+    <img src="https://static.wikia.nocookie.net/hotwheels/images/5/50/Mainline_2024_%2770_Plymouth_Barracuda_MF_Red_Malaysia_HTC95.jpg/revision/latest/scale-to-width-down/1000?cb=20240305223810">
+    <h3>'70 Plymouth Barracuda</h3>
+    <p>HW Roadsters</p>
+    <p>Price: ₱249</p>
+  </div>
+
+  <div class="product">
+      <input type="checkbox" name="products[]" value="Mighty K">
+    <img src="https://static.wikia.nocookie.net/hotwheels/images/2/22/2024_zamac_mighty_k_carded.jpg/revision/latest?cb=20240404173824">
+    <h3>Mighty K </h3>
+    <p>Compact Kings Walmart Exclusive</p>
+    <p>Price: ₱499</p>
+  </div>
+
+  <div class="product">
+      <input type="checkbox" name="products[]" value="2020 Ram 1500 Rebel">
+    <img src="https://static.wikia.nocookie.net/hotwheels/images/1/1d/HTC52.jpg/revision/latest?cb=20230925044318">
+    <h3>2020 Ram 1500 Rebel</h3>
+    <p>Factory Fresh</p>
+    <p>Price: ₱99</p>
+  </div>
+
+  <div class="product">
+      <input type="checkbox" name="products[]" value="Glory Chaser">
+    <img src="https://static.wikia.nocookie.net/hotwheels/images/3/36/Mainline_2024_Glory_Chaser_Burnt_Orange_Malaysia_HTB51.jpg/revision/latest/scale-to-width-down/1000?cb=20240305002213">
+    <h3>Glory Chaser</h3>
+    <p>HW Dream Garage</p>
+    <p>Price: ₱119</p>
+  </div>
+
+	
+	<h2>Customer Information</h2>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" required><br><br>
+
+    <input type="submit" value="Place Order" />
+  </form>
+</body>
+</html>
